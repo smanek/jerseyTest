@@ -1,0 +1,32 @@
+Do: 'mvn tomcat:run' to run this example.
+
+- http://localhost:8080/jerseyTest/rest/hello will return the String 'Hello World'
+
+- http://localhost:8080/jerseyTest/rest/joe will throw an 'AbstractMethodError' with the following backtrace:
+java.lang.AbstractMethodError
+        org.codehaus.jackson.map.AnnotationIntrospector$Pair.findSerializer(AnnotationIntrospector.java:1148)
+        org.codehaus.jackson.map.ser.BasicSerializerFactory.findSerializerFromAnnotation(BasicSerializerFactory.java:362)
+        org.codehaus.jackson.map.ser.BeanSerializerFactory.createSerializer(BeanSerializerFactory.java:252)
+        org.codehaus.jackson.map.ser.StdSerializerProvider._createUntypedSerializer(StdSerializerProvider.java:782)
+        org.codehaus.jackson.map.ser.StdSerializerProvider._createAndCacheUntypedSerializer(StdSerializerProvider.java:735)
+        org.codehaus.jackson.map.ser.StdSerializerProvider.findValueSerializer(StdSerializerProvider.java:344)
+        org.codehaus.jackson.map.ser.StdSerializerProvider.findTypedValueSerializer(StdSerializerProvider.java:420)
+        org.codehaus.jackson.map.ser.StdSerializerProvider._serializeValue(StdSerializerProvider.java:601)
+        org.codehaus.jackson.map.ser.StdSerializerProvider.serializeValue(StdSerializerProvider.java:256)
+        org.codehaus.jackson.map.ObjectMapper.writeValue(ObjectMapper.java:1604)
+        org.codehaus.jackson.jaxrs.JacksonJsonProvider.writeTo(JacksonJsonProvider.java:558)
+        com.sun.jersey.json.impl.provider.entity.JacksonProviderProxy.writeTo(JacksonProviderProxy.java:160)
+        com.sun.jersey.spi.container.ContainerResponse.write(ContainerResponse.java:306)
+        com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1437)
+        com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1349)
+        com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1339)
+        com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:416)
+        com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:537)
+        com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:708)
+        javax.servlet.http.HttpServlet.service(HttpServlet.java:717)
+        com.google.inject.servlet.ServletDefinition.doService(ServletDefinition.java:263)
+        com.google.inject.servlet.ServletDefinition.service(ServletDefinition.java:178)
+        com.google.inject.servlet.ManagedServletPipeline.service(ManagedServletPipeline.java:91)
+        com.google.inject.servlet.FilterChainInvocation.doFilter(FilterChainInvocation.java:62)
+        com.google.inject.servlet.ManagedFilterPipeline.dispatch(ManagedFilterPipeline.java:118)
+        com.google.inject.servlet.GuiceFilter.doFilter(GuiceFilter.java:113)
